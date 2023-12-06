@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>회원가입</title>
+    <style>
+      body {
+        background-color: #f0f0f0;
+      }
+
+      fieldset {
+        /* width: 50%; */
+        border-radius: 10px;
+        background-color: #5eb4ee;
+        padding: 15px;
+      }
+
+      table {
+        margin: 5px;
+        line-height: 25px;
+      }
+
+      input#user_id, input#pwd1, input#pwd2, input#email_id {
+        width: 250px;
+      }
+
+    </style>
+  </head>
+  <body>
+    <h1>회원가입</h1>
+    <fieldset>
+    <fieldset>
+        <legend>필수 입력 사항</legend>
+    <table>
+      <tr>
+        <th>ID</th>
+        <td>
+          <input type="text" name="user_id" id="user_id"  placeholder="아이디 10글자 이내"/>
+          <button>중복 확인</button>
+      <tr>
+        <th>비밀번호</td>
+        <td>
+          <input type="password" id="pwd1"  placeholder="영문, 숫자, 특수문자 포함 8자 이상" />
+        </td>
+      </tr>
+      <tr>
+        <th>비밀번호 확인</th>
+        <td>
+          <input type="password" id="pwd2" />
+        </td>
+      </tr>
+      <tr>
+        <th>Email</th>
+        <td>
+          <input type="email" id="email_id" />
+          <select name="email_domain">
+            <option value="free">직접 입력</option>
+            <option value="n">naver.com</option>
+            <option value="g">google.com</option>
+            <option value="h">hanmail.net</option>
+            <option value="d">daum.net</option>
+            <option value="k">kakao.com</option>
+          </select>
+        </td>
+      </tr>
+      </table>
+    </fieldset>
+    <fieldset>
+        <legend>추가 정보</legend>
+      <table>
+      <tr>
+        <td>
+          프로필 사진 :
+          <input type="file" name="picture" multiple accept="image/*" />
+        </td>
+      </tr>
+      <tr>
+        <td>
+          성별 : 
+          <input type="radio" name="gender" value="male">남자
+          <input type="radio" name="gender" value="female">여자
+        </td>
+      </tr>
+      <tr>
+        <td>생년월일 :
+          <input type="date" name="birth_date">
+        </td>
+      </tr>
+      <tr>
+        <td>취미<br>
+          <input type="checkbox" name="hoby" value="야구">야구
+          <input type="checkbox" name="hoby" value="농구">농구
+          <input type="checkbox" name="hoby" value="축구">축구
+          <br>
+          <input type="checkbox" name="hoby" value="공부">공부
+          <input type="checkbox" name="hoby" value="음악감상">음악감상
+          <br>
+          <input type="checkbox" name="hoby" value="기타">기타 : <input type="text">
+        </td>
+      </tr>
+      <tr>
+        <td>자기소개<br>
+            <textarea name="greetings" rows="5" cols="50" style="resize: none;"></textarea>
+        </td>
+      </tr>
+    </table>
+    </fieldset>
+      <br>
+      <button onclick="return test()">회원가입</button>
+      <button>다시입력</button>
+        
+    </fieldset>
+
+    <script>
+      function test() {
+        var pwd1 = document.getElementById("pwd1").value;
+        var pwd2 = document.getElementById("pwd2").value;
+
+        if (pwd1 === pwd2) {
+          alert("비밀번호가 일치합니다.");
+          // 여기에 submit 등의 추가 로직을 넣을 수 있습니다.
+        } else {
+          alert("비밀번호가 틀립니다.");
+          document.getElementById("pwd2").focus();
+        }
+
+        return false; // 이벤트 중지
+      }
+    </script>
+  </body>
+</html>
